@@ -47,51 +47,6 @@ ll qp(ll a, ll b, ll mo) { ll ans = 1; do { if (b & 1)ans = 1ll * ans*a%mo; a = 
 #define _GLIBCXX_DEBUG
 #define debug(x) cerr << #x << " = " << (x) << " (L" << __LINE__ << ")" << " " << __FILE__ << endl
 
-inline void ain(vector<int>& a,int n){
-   for(int i = 0;i < n;i++)scanf("%d",&a[i]);
-}
-inline void ainl(vector<ll>&a,int n){
-   for(int i = 0;i < n;i++)scanf("%lld",&a[i]);
-}
-template<class T>inline void aout(vector<T> a){
-   int sz = a.size();
-   cout << "[ ";
-   for(int i = 0;i < sz;i++){
-      if(i != sz-1)cout << a[i] << ", ";
-      else cout << a[i];
-   }
-   cout << " ]" << endl;
-}
-int n,m,l;
-int cost[400][400];
-int cost2[400][400];
 int main(void){
-   cin >> n >> m >> l;
-   rep(i,m){
-      int a,b,c;cin >> a >> b >> c;
-      a--,b--;
-      cost[a][b] = c;
-      cost[b][a] = c;
-   }
-   rep(i,400)rep(j,400)cost[i][j] = INT_MAX/3;
-   rep(i,400)rep(j,400)rep(k,400){
-      cost[i][j] = min(cost[i][j],cost[i][k] + cost[k][j]);
-   }
-   
-   rep(i,400)rep(j,400){
-      if(cost[i][j] <= l)cost2[i][j] = 1;
-      else cost[i][j] = 1000000;
-   }
-   rep(i,400)rep(j,400)rep(k,400){
-      cost2[i][j] = min(cost2[i][j],cost2[i][k] + cost2[k][j]);
-   }
-   int q;cin >> q;
-   rep(i,q){
-      int s,t;cin >> s >> t;
-      s--,t--;
-      
-      if(cost2[s][t] > 300)cout << -1 << endl;
-      else cout << cost2[s][t] << endl;
-   }
-   return 0;
+
 }
